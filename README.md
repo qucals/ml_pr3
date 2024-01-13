@@ -21,3 +21,12 @@
 ## Команды
 
 Перед запуском `airflow` необходимо выполнить следующую команду в терминале `export AIRFLOW_HOME=/home/ml-srv/ml_pr3/airflow`.
+
+Перед запуском `mlflow` необходимо выполнить следующую команду в терминале `export MLFLOW_REGISTRY_URI=mlflow`.
+
+Команда запуска `mlflow`:
+```bash
+mlflow server --host localhost --port 5000 \
+--backend-store-uri sqlite:///${MLFLOW_REGISTRY_URI}/mlflow.db \
+--default-artifact-root ${MLFLOW_REGISTRY_URI}
+```
