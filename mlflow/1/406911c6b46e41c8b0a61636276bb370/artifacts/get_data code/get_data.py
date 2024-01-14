@@ -4,8 +4,7 @@ try:
     sys.path.insert(0, "..")
     from config.tokens import youtube_api_token
 except Exception:
-    # My YouTube API Token
-    youtube_api_token = ""
+    youtube_api_token = "AIzaSyA66t4fhd9MTQfjh7z9DD0zATCRn5xMuyQ"
 
 
 import requests
