@@ -2,4 +2,5 @@
 .venv
 
 # private config data
-notebooks/tokens.py
+config/tokens.py
+scripts/get_data.py

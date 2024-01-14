@@ -1,0 +1,54 @@
+[2024-01-13T23:16:50.465+0500] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: youtube_comments_score.process_data manual__2024-01-13T18:16:39.944541+00:00 [queued]>
+[2024-01-13T23:16:50.470+0500] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: youtube_comments_score.process_data manual__2024-01-13T18:16:39.944541+00:00 [queued]>
+[2024-01-13T23:16:50.470+0500] {taskinstance.py:2171} INFO - Starting attempt 1 of 2
+[2024-01-13T23:16:50.481+0500] {taskinstance.py:2192} INFO - Executing <Task(BashOperator): process_data> on 2024-01-13 18:16:39.944541+00:00
+[2024-01-13T23:16:50.484+0500] {standard_task_runner.py:60} INFO - Started process 7545 to run task
+[2024-01-13T23:16:50.487+0500] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'youtube_comments_score', 'process_data', 'manual__2024-01-13T18:16:39.944541+00:00', '--job-id', '11', '--raw', '--subdir', 'DAGS_FOLDER/youtube_comments_score.py', '--cfg-path', '/tmp/tmp94en7bem']
+[2024-01-13T23:16:50.488+0500] {standard_task_runner.py:88} INFO - Job 11: Subtask process_data
+[2024-01-13T23:16:50.512+0500] {task_command.py:423} INFO - Running <TaskInstance: youtube_comments_score.process_data manual__2024-01-13T18:16:39.944541+00:00 [running]> on host ubuntu
+[2024-01-13T23:16:50.546+0500] {taskinstance.py:2481} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='youtube_comments_score' AIRFLOW_CTX_TASK_ID='process_data' AIRFLOW_CTX_EXECUTION_DATE='2024-01-13T18:16:39.944541+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-01-13T18:16:39.944541+00:00'
+[2024-01-13T23:16:50.547+0500] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-01-13T23:16:50.547+0500] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python3 /home/ml-srv/ml_pr3/scripts/process_data.py']
+[2024-01-13T23:16:50.553+0500] {subprocess.py:86} INFO - Output:
+[2024-01-13T23:16:51.382+0500] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2024-01-13T23:16:51.383+0500] {subprocess.py:93} INFO -   File "/home/ml-srv/ml_pr3/scripts/process_data.py", line 6, in <module>
+[2024-01-13T23:16:51.383+0500] {subprocess.py:93} INFO -     df[0] = (df[0] - df[0].min) / (df[0].max() - df[0].min())
+[2024-01-13T23:16:51.383+0500] {subprocess.py:93} INFO -              ~~~~~~^~~~~~~~~~~
+[2024-01-13T23:16:51.383+0500] {subprocess.py:93} INFO -   File "/home/ml-srv/.local/lib/python3.11/site-packages/pandas/core/ops/common.py", line 76, in new_method
+[2024-01-13T23:16:51.383+0500] {subprocess.py:93} INFO -     return method(self, other)
+[2024-01-13T23:16:51.383+0500] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^
+[2024-01-13T23:16:51.383+0500] {subprocess.py:93} INFO -   File "/home/ml-srv/.local/lib/python3.11/site-packages/pandas/core/arraylike.py", line 194, in __sub__
+[2024-01-13T23:16:51.384+0500] {subprocess.py:93} INFO -     return self._arith_method(other, operator.sub)
+[2024-01-13T23:16:51.384+0500] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2024-01-13T23:16:51.384+0500] {subprocess.py:93} INFO -   File "/home/ml-srv/.local/lib/python3.11/site-packages/pandas/core/series.py", line 5819, in _arith_method
+[2024-01-13T23:16:51.386+0500] {subprocess.py:93} INFO -     return base.IndexOpsMixin._arith_method(self, other, op)
+[2024-01-13T23:16:51.386+0500] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2024-01-13T23:16:51.386+0500] {subprocess.py:93} INFO -   File "/home/ml-srv/.local/lib/python3.11/site-packages/pandas/core/base.py", line 1381, in _arith_method
+[2024-01-13T23:16:51.387+0500] {subprocess.py:93} INFO -     result = ops.arithmetic_op(lvalues, rvalues, op)
+[2024-01-13T23:16:51.387+0500] {subprocess.py:93} INFO -              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2024-01-13T23:16:51.387+0500] {subprocess.py:93} INFO -   File "/home/ml-srv/.local/lib/python3.11/site-packages/pandas/core/ops/array_ops.py", line 285, in arithmetic_op
+[2024-01-13T23:16:51.388+0500] {subprocess.py:93} INFO -     res_values = _na_arithmetic_op(left, right, op)  # type: ignore[arg-type]
+[2024-01-13T23:16:51.388+0500] {subprocess.py:93} INFO -                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2024-01-13T23:16:51.388+0500] {subprocess.py:93} INFO -   File "/home/ml-srv/.local/lib/python3.11/site-packages/pandas/core/ops/array_ops.py", line 220, in _na_arithmetic_op
+[2024-01-13T23:16:51.388+0500] {subprocess.py:93} INFO -     result = func(left, right)
+[2024-01-13T23:16:51.388+0500] {subprocess.py:93} INFO -              ^^^^^^^^^^^^^^^^^
+[2024-01-13T23:16:51.388+0500] {subprocess.py:93} INFO -   File "/home/ml-srv/.local/lib/python3.11/site-packages/pandas/core/computation/expressions.py", line 242, in evaluate
+[2024-01-13T23:16:51.388+0500] {subprocess.py:93} INFO -     return _evaluate(op, op_str, a, b)  # type: ignore[misc]
+[2024-01-13T23:16:51.389+0500] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2024-01-13T23:16:51.389+0500] {subprocess.py:93} INFO -   File "/home/ml-srv/.local/lib/python3.11/site-packages/pandas/core/computation/expressions.py", line 73, in _evaluate_standard
+[2024-01-13T23:16:51.389+0500] {subprocess.py:93} INFO -     return op(a, b)
+[2024-01-13T23:16:51.389+0500] {subprocess.py:93} INFO -            ^^^^^^^^
+[2024-01-13T23:16:51.389+0500] {subprocess.py:93} INFO - TypeError: unsupported operand type(s) for -: 'int' and 'method'
+[2024-01-13T23:16:51.484+0500] {subprocess.py:97} INFO - Command exited with return code 1
+[2024-01-13T23:16:51.489+0500] {taskinstance.py:2699} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/ml-srv/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ml-srv/.local/lib/python3.11/site-packages/airflow/operators/bash.py", line 212, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2024-01-13T23:16:51.491+0500] {taskinstance.py:1138} INFO - Marking task as UP_FOR_RETRY. dag_id=youtube_comments_score, task_id=process_data, execution_date=20240113T181639, start_date=20240113T181650, end_date=20240113T181651
+[2024-01-13T23:16:51.498+0500] {standard_task_runner.py:107} ERROR - Failed to execute job 11 for task process_data (Bash command failed. The command returned a non-zero exit code 1.; 7545)
+[2024-01-13T23:16:51.512+0500] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-01-13T23:16:51.524+0500] {taskinstance.py:3281} INFO - 0 downstream tasks scheduled from follow-on schedule check

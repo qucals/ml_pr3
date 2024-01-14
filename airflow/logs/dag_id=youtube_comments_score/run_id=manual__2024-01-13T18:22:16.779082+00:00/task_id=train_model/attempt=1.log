@@ -1,0 +1,48 @@
+[2024-01-13T23:22:29.142+0500] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: youtube_comments_score.train_model manual__2024-01-13T18:22:16.779082+00:00 [queued]>
+[2024-01-13T23:22:29.147+0500] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: youtube_comments_score.train_model manual__2024-01-13T18:22:16.779082+00:00 [queued]>
+[2024-01-13T23:22:29.147+0500] {taskinstance.py:2171} INFO - Starting attempt 1 of 2
+[2024-01-13T23:22:29.155+0500] {taskinstance.py:2192} INFO - Executing <Task(BashOperator): train_model> on 2024-01-13 18:22:16.779082+00:00
+[2024-01-13T23:22:29.157+0500] {standard_task_runner.py:60} INFO - Started process 10023 to run task
+[2024-01-13T23:22:29.160+0500] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'youtube_comments_score', 'train_model', 'manual__2024-01-13T18:22:16.779082+00:00', '--job-id', '24', '--raw', '--subdir', 'DAGS_FOLDER/youtube_comments_score.py', '--cfg-path', '/tmp/tmpjpoj5usq']
+[2024-01-13T23:22:29.161+0500] {standard_task_runner.py:88} INFO - Job 24: Subtask train_model
+[2024-01-13T23:22:29.183+0500] {task_command.py:423} INFO - Running <TaskInstance: youtube_comments_score.train_model manual__2024-01-13T18:22:16.779082+00:00 [running]> on host ubuntu
+[2024-01-13T23:22:29.217+0500] {taskinstance.py:2481} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='youtube_comments_score' AIRFLOW_CTX_TASK_ID='train_model' AIRFLOW_CTX_EXECUTION_DATE='2024-01-13T18:22:16.779082+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-01-13T18:22:16.779082+00:00'
+[2024-01-13T23:22:29.217+0500] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-01-13T23:22:29.218+0500] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python3 /home/ml-srv/ml_pr3/scripts/train_model.py']
+[2024-01-13T23:22:29.223+0500] {subprocess.py:86} INFO - Output:
+[2024-01-13T23:22:29.800+0500] {subprocess.py:93} INFO - /home/ml-srv/ml_pr3/scripts/train_model.py:8: UserWarning: Pandas doesn't allow columns to be created via a new attribute name - see https://pandas.pydata.org/pandas-docs/stable/indexing.html#attribute-access
+[2024-01-13T23:22:29.800+0500] {subprocess.py:93} INFO -   df.colums = ["id", "counts"]
+[2024-01-13T23:22:29.833+0500] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2024-01-13T23:22:29.833+0500] {subprocess.py:93} INFO -   File "/home/ml-srv/.local/lib/python3.11/site-packages/pandas/core/indexes/base.py", line 3791, in get_loc
+[2024-01-13T23:22:29.833+0500] {subprocess.py:93} INFO -     return self._engine.get_loc(casted_key)
+[2024-01-13T23:22:29.833+0500] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2024-01-13T23:22:29.834+0500] {subprocess.py:93} INFO -   File "index.pyx", line 152, in pandas._libs.index.IndexEngine.get_loc
+[2024-01-13T23:22:29.834+0500] {subprocess.py:93} INFO -   File "index.pyx", line 160, in pandas._libs.index.IndexEngine.get_loc
+[2024-01-13T23:22:29.834+0500] {subprocess.py:93} INFO -   File "pandas/_libs/index_class_helper.pxi", line 70, in pandas._libs.index.Int64Engine._check_type
+[2024-01-13T23:22:29.834+0500] {subprocess.py:93} INFO - KeyError: 'id'
+[2024-01-13T23:22:29.834+0500] {subprocess.py:93} INFO - 
+[2024-01-13T23:22:29.835+0500] {subprocess.py:93} INFO - The above exception was the direct cause of the following exception:
+[2024-01-13T23:22:29.835+0500] {subprocess.py:93} INFO - 
+[2024-01-13T23:22:29.835+0500] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2024-01-13T23:22:29.835+0500] {subprocess.py:93} INFO -   File "/home/ml-srv/ml_pr3/scripts/train_model.py", line 11, in <module>
+[2024-01-13T23:22:29.835+0500] {subprocess.py:93} INFO -     model.fit(df["id"].values.reshape(-1, 1), df["counts"])
+[2024-01-13T23:22:29.835+0500] {subprocess.py:93} INFO -               ~~^^^^^^
+[2024-01-13T23:22:29.835+0500] {subprocess.py:93} INFO -   File "/home/ml-srv/.local/lib/python3.11/site-packages/pandas/core/frame.py", line 3893, in __getitem__
+[2024-01-13T23:22:29.835+0500] {subprocess.py:93} INFO -     indexer = self.columns.get_loc(key)
+[2024-01-13T23:22:29.835+0500] {subprocess.py:93} INFO -               ^^^^^^^^^^^^^^^^^^^^^^^^^
+[2024-01-13T23:22:29.835+0500] {subprocess.py:93} INFO -   File "/home/ml-srv/.local/lib/python3.11/site-packages/pandas/core/indexes/base.py", line 3798, in get_loc
+[2024-01-13T23:22:29.836+0500] {subprocess.py:93} INFO -     raise KeyError(key) from err
+[2024-01-13T23:22:29.836+0500] {subprocess.py:93} INFO - KeyError: 'id'
+[2024-01-13T23:22:29.999+0500] {subprocess.py:97} INFO - Command exited with return code 1
+[2024-01-13T23:22:30.003+0500] {taskinstance.py:2699} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/ml-srv/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ml-srv/.local/lib/python3.11/site-packages/airflow/operators/bash.py", line 212, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2024-01-13T23:22:30.006+0500] {taskinstance.py:1138} INFO - Marking task as UP_FOR_RETRY. dag_id=youtube_comments_score, task_id=train_model, execution_date=20240113T182216, start_date=20240113T182229, end_date=20240113T182230
+[2024-01-13T23:22:30.014+0500] {standard_task_runner.py:107} ERROR - Failed to execute job 24 for task train_model (Bash command failed. The command returned a non-zero exit code 1.; 10023)
+[2024-01-13T23:22:30.033+0500] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-01-13T23:22:30.043+0500] {taskinstance.py:3281} INFO - 0 downstream tasks scheduled from follow-on schedule check
