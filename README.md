@@ -3,7 +3,7 @@
 ## Что нужно сделать:
 
 - [x] Определить внешний источник получения данных и способ получения этих данных (http, curl, wget, API, SQL, SparQL, ...);
-- [ ] Поставить задачу для алгоритма машинного обучения, выбрать модель и метрику
+- [x] Поставить задачу для алгоритма машинного обучения, выбрать модель и метрику
 - [x] Создать инфраструктуру (например, виртуальные машины VirtualBox), установить и настроить для работы необходимое ПО, в том числе airflow и mlflow, а также venv для организации работы виртуального окружения
 - [x] Создать Python скрипты для:
     - [x] Получения данных из внешнего источника;
@@ -31,6 +31,10 @@ mlflow server --host localhost --port 5000 \
 --default-artifact-root ${MLFLOW_REGISTRY_URI}
 ```
 
+## Задача для алгоритма машинного обучения, модель и метрика
+
+Данная работа нацелена на изучение рейтинга канала на платформе YouTube по количеству лайков на видео.
+
 ## Запуск проекта
 
 В папке со скриптами описан файл `get_data0.py`. Для запуска проекта необходимо создать копию данного скрипта и переименовать в `get_data.py`. При этом в скопированном файле необходимо ввести токен для работы с API YouTube на свой:
@@ -45,3 +49,17 @@ except Exception:
     # My YouTube API Token
     youtube_api_token = ""
 ```
+
+## Скриншоты
+
+Запуск Airflow Webserver & Scheduler.
+![Airflow Webserver & Scheduler](images/airflow.png)
+
+Запуск MLflow.
+![MLflow](images/mlflow.png)
+
+Выполненная ETL процесс на Airflow Webserver.
+![ETL process](images/airflow%20webserver.png)
+
+MLflow Webserver.
+![MLflow Webserver](images/mlflow%20webserver.png)
